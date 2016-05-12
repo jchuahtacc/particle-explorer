@@ -10,6 +10,13 @@
     <span class="input-group-addon">Data: </span>
     <input type="text" class="form-control" particle-publish-panel="data" placeholder='{ "key" : "data" }'>
   </div>
+  <div class="input-group">
+    <span class="input-group-addon">Visibility: </span>
+    <select class="form-control" particle-publish-panel="visibility">
+      <option value="public">Public</option>
+      <option value="private" selected="selected">Private</option>
+    </select>
+  </div>
   <button class="btn btn-primary" particle-publish-panel="publish">Publish</button>
 </div>
 <div class="panel-footer">

@@ -47,8 +47,9 @@ define('particlepublishpanel',
           ok = false;
         }
       }
+      var isPrivate = that.$particlepublishpanel.find('[particle-publish-panel="visibility"]').val() === "private";
       if (ok) {
-        exchange.publishEvent({ name : eventname, data : data, auth: token });
+        exchange.publishEvent({ name : eventname, data : data, isPrivate : isPrivate, auth: token });
       }
     }
 
