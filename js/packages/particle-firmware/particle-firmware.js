@@ -16,6 +16,13 @@ define('particlefirmware',
     function fileSelectCallback(e) {
       formData.append('file', e.target.files[0]);
       formData.append('file_type', 'binary');
+      $('[particle-firmware="flashall"]').removeClass('disabled');
+    }
+
+    function flashAll() {
+      $('[particle-firmware="flashall"]').addClass('disabled');
+      $('[particle-firmware="flashall"]').html('Flashing');
+
       nextUpload();
     }
 
@@ -39,12 +46,14 @@ define('particlefirmware',
         }
       } else {
         $.bootstrapGrowl("Firmware pushed to all devices", { type : "success" });
+        $('[particle-firmware="flashall"]').html('Done flashing');
       }
     }
 
     function init() {
       that.$particlefirmware.html(panelHtml);
       $('[particle-firmware="bin"]').on('change', fileSelectCallback);
+      $('[particle-firmware="flashall"]').click(flashAll);
       keys = Object.keys(list);
     }
 
