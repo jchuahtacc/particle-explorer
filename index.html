@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Firebase/Particle.io Controller</title>
+    <title>Particle.io Mass Flasher</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -30,7 +30,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Particle Explorer</a>
+          <a class="navbar-brand" href="#">Particle.io Mass Flasher</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <!-- /.navbar-collapse -->
@@ -40,14 +40,42 @@
     <nav class="navbar navbar-default"></nav>
     <div class="row container-fluid">
       <div class="col-md-4">
-        <div class="row">
-          <div class="particle-device-list"></div>
+        <div class="panel panel-default">
+          <div class="panel-footer">
+            <h4>Instructions</h4>
+          </div>
+          <div class="panel-body">
+            <p>
+              Create a .json file with device IDs and their associated keys.
+              You can use an <a href="./example.json">example.json</a>. All devices must be of the same type!
+              For example, all device IDs must be IDs of Particle.io Photons. You cannot mix Photons, P1s and Electrons.
+            </p>
+            <p>
+              In the <a href="https://build.particle.io">Particle.io Build IDE</a>, choose a target device that matches the device type.
+              In the "code" tab next to your App's name, click on the cloud icon that allows you to "Compile and download a firmware binary".
+            </p>
+            <p>
+              Make sure all of your target devices are connected to the Particle.io cloud.
+              Load your device .json file and your firmware binary.
+              As soon as your firmware binary is selected, uploading will begin. Each device will be flashed in sequence.
+            </p>
+            <p>
+              Status icons:
+            </p>
+            <ul class="list-group">
+              <li class="list-group-item"><span class="glyphicon glyphicon-pause"></span>&nbsp;&nbsp;Waiting to flash</li>
+              <li class="list-group-item"><span class="glyphicon glyphicon-play"></span>&nbsp;&nbsp;Flashing</li>
+              <li class="list-group-item"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Incorrect access token</li>
+              <li class="list-group-item"><span class="glyphicon glyphicon-warning-sign"></span>&nbsp;&nbsp;Unable to flash (device is offline?)</li>
+            </ul>
+          </div>
         </div>
       </div>
       <div class="col-md-4">
-        <div class="row">
+          <div class="particle-device-list"></div>
+      </div>
+      <div class="col-md-4">
           <div class="particle-firmware"></div>
-        </div>
       </div>
     </div>
   </body>

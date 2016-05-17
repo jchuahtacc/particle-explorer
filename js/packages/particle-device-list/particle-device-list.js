@@ -2,11 +2,13 @@ define('particledevicelist',
   ['jquery',
     'text!./html/particle-device-list.html',
     'text!./html/particle-device-listitem.html',
+    'particlefirmware',
     'destroyed',
     'bootstrapgrowl'],
   function($, panelHtml, listItemHTML) {
   ParticleDeviceList = function() {
     var that = this;
+    var firmwarePanel;
 
     that.$particledevicelist = $('.particle-device-list');
     function fileSelectCallback(e) {
@@ -28,10 +30,33 @@ define('particledevicelist',
               var device = data.devices[key];
               if (device && device.deviceId && device.accessToken) {
                 var newDevice = $(listItemHTML);
-                newDevice.find('[particle-device-listitem="description"]').html(device.deviceId + " <i>(" + device.accessToken + ")</i>" );
+                newDevice.attr('deviceId', device.deviceId);
+                newDevice.find('[particle-device-listitem="description"]').html(device.deviceId);
                 newDevice.appendTo('[particle-device-list="deviceList"]');
               }
             }
+            firmwarePanel = new ParticleFirmware(data.devices, function(deviceId, status) {
+              var listItem = that.$particledevicelist.find('[deviceId="' + deviceId + '"]');
+              var iconSpan = listItem.find('[particle-device-listitem="glyphicon"]');
+              iconSpan.removeClass("glyphicon-pause");
+              iconSpan.removeClass("glyphicon-play");
+              var statusCaught = false;
+              if (status === "sending") {
+                iconSpan.addClass("glyphicon-play");
+                statusCaught = true;
+              }
+              if (status === 200) {
+                iconSpan.addClass("glyphicon-ok");
+                statusCaught = true;
+              }
+              if (status === 401) {
+                iconSpan.addClass("glyphicon-remove");
+                statusCaught = true;
+              }
+              if (!statusCaught) {
+                iconSpan.addClass("glyphicon-warning-sign");
+              }
+            });
           }
           // load list from file
         }

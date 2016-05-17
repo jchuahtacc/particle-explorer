@@ -1,0 +1,12 @@
+{
+	"devices": [
+		{
+			"deviceId": "0123456789abcdef01234567",
+			"accessToken": "01234"
+		},
+		{
+			"deviceId": "0123456789abcdef01234567",
+			"accessToken": "01234"
+		}
+	]
+}

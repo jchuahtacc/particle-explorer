@@ -21,6 +21,11 @@ require.config({
       name: "particledevicelist",
       location: "packages/particle-device-list",
       main: "particle-device-list"
+    },
+    {
+      name: "particlefirmware",
+      location: "packages/particle-firmware",
+      main: "particle-firmware"
     }
   ]
 });

@@ -1,6 +1,7 @@
 define(['jquery',
         'particle',
         'particledevicelist',
+        'particlefirmware',
         'bootstrapgrowl',
         'firebase', 'bootstrap'], function($, Particle) {
   function App() {
