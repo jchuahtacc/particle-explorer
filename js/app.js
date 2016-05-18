@@ -40,6 +40,8 @@ define(['jquery',
             if (access_token) {
               $.bootstrapGrowl("Login successful", {type : 'success'});
               $("#particle-signin-button").remove();
+              $("#introheader").html("Select a device");
+              $("#introbody").html("Select one of your Particle.io devices to inspect. You may also query exposed variables, call exposed functions and publish events.");
               this.token = access_token;
               this.particledevicedropdown = new ParticleDeviceDropdown(access_token, $.proxy(this.deviceSelectListener, this));
             } else {

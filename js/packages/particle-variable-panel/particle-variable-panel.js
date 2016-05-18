@@ -85,7 +85,7 @@ define('particlevariablepanel',
       exchange.getEventStream({deviceId : id, auth: token});
     }
 
-    $('.particle-variable-panel').addClass('panel panel-default');
+    $('.particle-variable-panel').addClass('panel panel-info');
     init();
   }
 

@@ -86,7 +86,7 @@ define('particlefunctionpanel',
       exchange.getEventStream({deviceId : id, auth: token});
     }
 
-    $('.particle-function-panel').addClass('panel panel-default');
+    $('.particle-function-panel').addClass('panel panel-info');
     init();
   }
 

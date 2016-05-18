@@ -34,7 +34,7 @@ define('particlestatuspanel',
 
     }
 
-    $('.particle-status-panel').addClass('panel panel-default');
+    $('.particle-status-panel').addClass('panel panel-success');
     init();
   }
 

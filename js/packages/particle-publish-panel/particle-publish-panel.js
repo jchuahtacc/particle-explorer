@@ -53,7 +53,7 @@ define('particlepublishpanel',
       }
     }
 
-    $('.particle-publish-panel').addClass('panel panel-default');
+    $('.particle-publish-panel').addClass('panel panel-info');
     init();
   }
 
